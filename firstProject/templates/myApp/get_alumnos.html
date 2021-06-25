@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <header>
+        <h1>Detalle del alumno</h1>
+    </header>
+{% endblock title %}
+
+{% block content %}
+<h2>Información del alumno</h2>
+<div>
+    <p><strong>Número de estudiante:</strong> {{alumno.id}}</p>
+    <p><strong>Nombre:</strong> {{alumno.first_name}}</p>
+    <p><strong>Apellido:</strong> {{alumno.last_name}}</p>
+    <p><strong>Status:</strong> {{alumno.isActive|upper}}</p>
+</div>
+
+    
+{% endblock content %}

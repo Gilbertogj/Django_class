@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <header>
+        <h1>Lista de alumnos</h1>
+    </header>
+{% endblock title %}
+
+{% block algo %}
+{% endblock algo %}
+
+{% block content %}
+<article class="articulo-principal">
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Esta activa</th>
+    </tr>
+    {% for alumno in alumnos %}
+    <tr>
+        <td>{{alumno.first_name}}</td>
+        <td>{{alumno.last_name}}</td>
+        <td>{{alumno.isActive|upper}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<aside>
+    {% for alumno in alumnos %}
+    {% if alumno.isActive %}
+    <tr>
+        <td><img src="https://miro.medium.com/max/512/1*nZ9VwHTLxAfNCuCjYAkajg.png" alt="" class="activos"></td>
+        <td>{{alumno.first_name}}</td>
+        <td>{{alumno.last_name}}</td>
+        <td>{{alumno.isActive|upper}}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}   
+</aside>
+</article>
+{% endblock content%}
+
+
+
+
+
+
+
+
