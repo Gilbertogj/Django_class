@@ -1,22 +1,14 @@
 from django.urls import path
 
-from .views import (bienvenida,
-    despedida, 
-    saludo, 
-    saludo_nombre, 
-    website_call, 
-    lista_alumnos, 
-    alumnos,
-    obtener_alumno
+from .views import (
+    obtener_alumno,
+    Alumnos,
+    AlumnosList,
+    AlumnosDetail,
 )
 
 urlpatterns = [
-    path("", bienvenida),
-    path("despedida/", despedida),
-    path("saludo/", saludo),
-    path("saludo/<str:first_name>/", saludo_nombre),
-    path("liga/<str:website>/", website_call),
-    path("lista_alumnos/",lista_alumnos ),
-    path("alumnos/",alumnos ),
-    path("alumnos/<int:id>/",obtener_alumno),
+    path("alumnos/", AlumnosList.as_view(), name="alumnos_list"),
+    # path("alumnos/<int:id>/", obtener_alumno),
+    path("alumnos/<int:pk>/", AlumnosDetail.as_view(), name="alumnos_detail"),
 ]

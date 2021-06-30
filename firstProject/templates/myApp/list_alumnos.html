@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <header>
+        <h1>Alumnos</h1>
+    </header>
+{% endblock title %}
+
+    {% block content %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+        </tr>
+        {% for alumno in alumnos %}
+        <tr>
+            <td>
+                <a href="{% url 'myapp:alumnos_detail' pk=alumno.id %}">
+                    {{alumno.id}}
+                </a>
+                
+            </td>
+            <td>{{alumno.first_name}}</td>
+            <td>{{alumno.last_name}}</td>
+            <td>{{alumno.email}}</td>
+            <td>{{alumno.phone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock content %}
+
+
+
+
