@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    <header>
+        <h1>Crear Alumno</h1>
+    </header>
+{% endblock title %}
+
+{% block content %}
+
+<form method="POST">
+    {{form}}
+    <button type="submit"> Crear Alumno</button>
+
+
+</form>
+
+
+{% endblock content %}
