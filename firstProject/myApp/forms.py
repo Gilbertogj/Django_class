@@ -1,8 +1,12 @@
+from django.forms import fields
+from .models import Alumno
 from django import forms
 
-class AlumnoForm(forms.Form):
-
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    email = forms.CharField()
-    phone = forms.CharField()
+class AlumnoForm(forms.ModelForm):
+    class Meta:
+        model = Alumno
+        fields = ['first_name', 'last_name', 'email', 'phone', 'generacion']
+        widgets = {
+            
+            "email" : forms.EmailInput()
+        }

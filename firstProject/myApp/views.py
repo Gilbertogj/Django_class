@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from django.template import context, loader
-from django.views.generic import View, TemplateView, ListView, DetailView  
-from django.views.generic.edit import FormView
+from django.views.generic import View, TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic.edit import FormView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import Alumno
@@ -65,11 +65,17 @@ class AlumnosDetail (DetailView):
     context_object_name = "alumno"
 
 
+class AlumnosCreate(CreateView):
+    template_name = "myApp/create_alumnos.html"
+    form_class = AlumnoForm
+    success_url = reverse_lazy("myapp:alumnos_list")
 
-class AlumnosCreate(FormView):
-    template_name= "myApp/create_alumnos.html"
-    form_class= AlumnoForm
-    success_url= reverse_lazy("myapp:alumnos_list")
+class AlumnosUpdate(UpdateView):
+    model = Alumno
+    template_name = "myApp/update_alumnos.html"
+    form_class = AlumnoForm
+    success_url = reverse_lazy("myapp:alumnos_list")
+
 
 
 

@@ -9,6 +9,7 @@
 
 {% block content %}
 <a href="/myapp/alumnos/">Alumnos</a>
+
 <h2>Información del alumno</h2>
 <div>
     <p><strong>ID:</strong> {{alumno.id}}</p>
@@ -17,6 +18,7 @@
     <p><strong>Email:</strong> {{alumno.email}}</p>
     <p><strong>Phone:</strong> {{alumno.generacion}}</p>
 </div>
-
+<br>
+<a href="{% url 'myapp:alumnos_update' pk=alumno.id %}">Editar Alumno</a>
     
 {% endblock content %}
