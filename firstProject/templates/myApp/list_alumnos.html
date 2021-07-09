@@ -24,7 +24,9 @@
                 </a>
                 
             </td>
-            <td>{{alumno.first_name}}</td>
+            <td>
+                <a href="{% url 'myapp:alumnos_detail' pk=alumno.id %}">{{alumno.first_name}}</a>
+            </td>
             <td>{{alumno.last_name}}</td>
             <td>{{alumno.email}}</td>
             <td>{{alumno.phone}}</td>
@@ -34,6 +36,7 @@
     <br>
     <a href="{% url 'myapp:alumnos_create' %}">Crear alumnos</a>
     {% endblock content %}
+    
 
 
 

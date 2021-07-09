@@ -74,11 +74,13 @@ class AlumnosUpdate(UpdateView):
     model = Alumno
     template_name = "myApp/update_alumnos.html"
     form_class = AlumnoForm
-    success_url = reverse_lazy("myapp:alumnos_list")
+    def get_success_url(self):
+        return reverse_lazy('myapp:alumnos_detail', pk=(self.objects.get(id)))
+    # success_url = get_success_url(model)
 
 
-
-
+# reverse_lazy('myapp:alumnos_detail',pk=(Alumno.objects.get(id)))
+# 'myapp:alumnos_detail', kwargs={'pk': Alumno.id}
 
 
 
